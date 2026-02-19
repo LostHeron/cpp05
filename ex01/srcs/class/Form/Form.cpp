@@ -6,7 +6,7 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 16:02:45 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 11:15:40 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/19 13:14:37 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,24 +62,24 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 
 const char * Form::GradeTooHighException::what() const throw()
 {
-	return ("Form: grade too high");
+	return ("form grade too high");
 }
 
 const char * Form::GradeTooLowException::what() const throw()
 {
-	return ("Form: grade too low");
+	return ("form grade too low");
 }
 
 const char * Form::AlreadySigned::what() const throw()
 {
-	return ("Form is already signed");
+	return ("form is already signed");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& other)
 {
-	os << "Form '" << other.getName() << "', isSigned: "
-		<< (other.getIsSigned() ? "true" : "false")
-		<< " ; signe grade : " << other.getSignGrade()
-		<< " ; execute grade : " << other.getExecuteGrade() << " ;";
+	os << "Form-> name: '" << other.getName() << "', "
+		<< "isSigned: '" << (other.getIsSigned() ? "true" : "false") << "', "
+		<< "sign grade: " << other.getSignGrade() << ", "
+		<< "execute grade: " << other.getExecuteGrade() << ",";
 	return (os);
 }

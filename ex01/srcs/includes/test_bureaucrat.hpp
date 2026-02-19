@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_Bureaucrat.cpp                                :+:      :+:    :+:   */
+/*   test_bureaucrat.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 18:03:16 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 09:45:03 by jweber           ###   ########.fr       */
+/*   Created: 2026/02/18 18:04:52 by jweber            #+#    #+#             */
+/*   Updated: 2026/02/19 13:17:33 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.hpp"
-#include "test_Bureaucrat.hpp"
+#ifndef TEST_BUREAUCRAT_HPP
+# define TEST_BUREAUCRAT_HPP
 
-void	test_Bureaucrat()
-{
-	MSG("test ok");
-	test_ok();
-	MSG("end");NL;
+void	test_bureaucrat();
 
-	MSG("test too high");
-	test_too_high();
-	MSG("end");NL;
-
-	MSG("test too low");
-	test_too_low();
-	MSG("end");NL;
-
-	MSG("test increment");
-	test_increment();
-	MSG("end");NL;
-
-	MSG("test decrement");
-	test_decrement();
-	MSG("end");NL;
-}
+#endif

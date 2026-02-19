@@ -6,7 +6,7 @@
 #    By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/07 13:36:07 by jweber            #+#    #+#              #
-#    Updated: 2026/02/19 11:19:39 by jweber           ###   ########.fr        #
+#    Updated: 2026/02/19 13:17:52 by jweber           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,22 +40,13 @@ CLASS_FILES := $(addprefix $(FORM_DIR), $(FORM_FILES)) \
 			   $(addprefix $(SIGN_GRADE_DIR), $(SIGN_GRADE_FILES)) \
 			   $(addprefix $(EXECUTE_GRADE_DIR), $(EXECUTE_GRADE_FILES)) \
 
-TEST_BUREAUCRAT_DIR := test_Bureaucrat/
-TEST_BUREAUCRAT_FILES := test_Bureaucrat.cpp \
-			 		 	 test_ok.cpp \
-						 test_too_high.cpp \
-						 test_too_low.cpp \
-			 		 	 test_increment.cpp \
-			 		 	 test_decrement.cpp \
+TEST_BUREAUCRAT_DIR := test_bureaucrat/
+TEST_BUREAUCRAT_FILES := test_bureaucrat.cpp \
 
-TEST_FORM_DIR:= test_Form/
-TEST_FORM_FILES := test_Form.cpp \
-				   test_form_ok.cpp \
-				   test_execute_grade_too_high.cpp\
-				   test_execute_grade_too_low.cpp\
-				   test_sign_grade_too_high.cpp\
-				   test_sign_grade_too_low.cpp\
-				   test_form_signing_ok.cpp \
+TEST_FORM_DIR:= test_form/
+TEST_FORM_FILES := test_form.cpp \
+				   test_form_creation.cpp \
+				   test_form_signing.cpp \
 
 
 TEST_DIR := test/

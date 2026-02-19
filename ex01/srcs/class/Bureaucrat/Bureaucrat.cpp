@@ -6,7 +6,7 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 09:04:54 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 11:20:00 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/19 13:12:37 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	Bureaucrat::signForm(Form& form) const
 		std::cout << "Bureaucrat '" << this->getName() << "' could not "
 			"sign Form '" << form.getName() << "' because :\n";
 		std::cout << e.what() << "\n";
+		throw ;
 	}
 }
 
@@ -116,11 +117,11 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("exception: Grade too low.");
+	return ("bureaucrat grade too low.");
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("exception: Grade too high.");
+	return ("bureaucrat Grade too high.");
 }
 

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_execute_grade_too_high.cpp                    :+:      :+:    :+:   */
+/*   test_form.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 10:52:47 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 10:59:07 by jweber           ###   ########.fr       */
+/*   Created: 2026/02/19 09:40:55 by jweber            #+#    #+#             */
+/*   Updated: 2026/02/19 13:08:50 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
-#include <exception>
-#include <iostream>
+#include "test_form.hpp"
+#include "test.hpp"
 
-void	test_execute_grade_too_high(void)
+void	test_form(void)
 {
-	try
-	{
-		Form	a("first_form", 0, 13);
-		std::cout << a << "\n";
-	}
-	catch(std::exception& e)
-	{
-		std::cout << e.what() << "\n";
-	}
-	catch(...)
-	{
-		std::cout << "another error occured" << std::endl;
-	}
+	MSG_POUND("TEST FORM CREATION");NL;
+	test_form_creation();
+	MSG_POUND("END");NL;
+
+	MSG_POUND("TEST FORM SIGNING");NL;
+	test_form_signing();
+	MSG_POUND("END");NL;
 }
