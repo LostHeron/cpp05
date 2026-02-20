@@ -6,7 +6,7 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 16:02:45 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 16:55:17 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 13:39:17 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,15 @@ void	AForm::beSigned(const Bureaucrat& bureaucrat)
 	this->isSigned = true;
 }
 
+void		AForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getIsSigned() == false)
+		throw AForm::IsNotSigned();
+	if (executor.getGrade() > this->getExecuteGrade().getGrade())
+		throw AForm::GradeTooLowException();
+	return ;
+}
+
 const char * AForm::GradeTooHighException::what() const throw()
 {
 	return ("form grade too high");
@@ -91,10 +100,5 @@ std::ostream&	operator<<(std::ostream& os, const AForm& other)
 
 std::ostream&	operator<<(std::ostream& os, const AForm *ptr_other)
 {
-	const AForm& other = *ptr_other;
-	os << "AForm-> name: '" << other.getName() << "', "
-		<< "isSigned: '" << (other.getIsSigned() ? "true" : "false") << "', "
-		<< "sign grade: " << other.getSignGrade() << ", "
-		<< "execute grade: " << other.getExecuteGrade() << ",";
-	return (os);
+	return (operator<<(os, *ptr_other));
 }

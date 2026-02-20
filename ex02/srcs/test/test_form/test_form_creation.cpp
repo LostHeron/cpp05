@@ -6,18 +6,15 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 12:53:19 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/20 12:18:41 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 13:44:08 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ABureaucratException.hpp"
+#include "ABureaucratExceptions.hpp"
 #include "AForm.hpp"
-#include <exception>
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm/PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm/RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include "test.hpp"
 
 void	test_form_creation_ok(void);
@@ -66,7 +63,7 @@ void	test_form_creation_ok()
 		enzo.signForm(my_form);NL;
 		enzo.executeForm(my_form);NL;
 	}
-	catch (ABureaucratException& e)
+	catch (ABureaucratExceptions& e)
 	{
 		std::cout << "error: " << e.what() << "\n";
 	}

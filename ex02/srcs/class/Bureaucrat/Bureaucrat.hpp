@@ -6,15 +6,14 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 08:51:39 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/20 12:17:40 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 13:34:17 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include "ABureaucratException.hpp"
-#include <exception>
+#include "ABureaucratExceptions.hpp"
 #include <ostream>
 #include <string>
 
@@ -44,12 +43,12 @@ class Bureaucrat
 		Bureaucrat& operator--();
 		Bureaucrat	operator--(int);
 
-		class GradeTooHighException: public ABureaucratException
+		class GradeTooHighException: public ABureaucratExceptions
 		{
 			const char * what() const throw();
 		};
 
-		class GradeTooLowException: public ABureaucratException 
+		class GradeTooLowException: public ABureaucratExceptions
 		{
 			const char * what() const throw();
 		};

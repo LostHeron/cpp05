@@ -6,14 +6,13 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 09:04:54 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/20 12:17:27 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 13:35:48 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include "AFormException.hpp"
-#include <exception>
+#include "AFormExceptions.hpp"
 #include <iostream>
 
 Bureaucrat::Bureaucrat():
@@ -67,7 +66,7 @@ void	Bureaucrat::signForm(AForm& form) const
 		std::cout << "Bureaucrat '" << this->getName() << "' successfully "
 			"signed Form '" << form.getName() << "'\n";
 	}
-	catch (AFormException& e)
+	catch (AFormExceptions& e)
 	{
 		std::cout << "Bureaucrat '" << this->getName() << "' could not "
 			"sign Form '" << form.getName() << "' because :\n";
@@ -88,7 +87,7 @@ void	Bureaucrat::executeForm(AForm const& form) const
 		std::cout << "Bureaucrat '" << this->name << "' successfully executed "
 			<< "Form '" << form.getName() << "'\n";
 	}
-	catch (AFormException& e)
+	catch (AFormExceptions& e)
 	{
 		std::cout << "Bureaucrat '" << this->name << "' could not execute "
 			<< "Form '" << form.getName() << "' because:\n"

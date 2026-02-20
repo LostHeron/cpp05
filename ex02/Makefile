@@ -6,7 +6,7 @@
 #    By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/07 13:36:07 by jweber            #+#    #+#              #
-#    Updated: 2026/02/20 12:01:22 by jweber           ###   ########.fr        #
+#    Updated: 2026/02/20 14:37:01 by jweber           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,15 @@ INCLUDES = -I $(INCLUDES_DIR)\
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(EXCEPTION_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(FORM_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(FORM_DIR)$(SHRUBBERY_CREATION_FORM_DIR) \
+		   -I $(SOURCES_DIR)$(CLASS_DIR)$(FORM_DIR)$(ROBOTOMY_REQUEST_FORM_DIR) \
+		   -I $(SOURCES_DIR)$(CLASS_DIR)$(FORM_DIR)$(PRESIDENTIAL_PARDON_FORM_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(SIGN_GRADE_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(EXECUTE_GRADE_DIR) \
 
 EXCEPTION_DIR := Exceptions/
-EXCEPTION_FILES := AFormException.cpp \
-				   ABureaucratException.cpp \
+EXCEPTION_FILES := AWorkExceptions.cpp\
+				   AFormExceptions.cpp \
+				   ABureaucratExceptions.cpp \
 
 BUREAUCRAT_DIR := Bureaucrat/
 BUREAUCRAT_FILES := Bureaucrat.cpp \
@@ -59,6 +62,15 @@ CLASS_FILES := $(addprefix $(FORM_DIR), $(FORM_FILES)) \
 			   $(addprefix $(EXECUTE_GRADE_DIR), $(EXECUTE_GRADE_FILES)) \
 			   $(addprefix $(EXCEPTION_DIR), $(EXCEPTION_FILES)) \
 
+TEST_PRESIDENTIAL_FORM_DIR := test_presidential_form/
+TEST_PRESIDENTIAL_FORM_FILES := test_presidential_form.cpp \
+
+TEST_ROBOTOMY_FORM_DIR := test_robotomy_form/
+TEST_ROBOTOMY_FORM_FILES := test_robotomy_form.cpp \
+							
+TEST_SHRUBBERY_FORM_DIR := test_shrubbery_form/
+TEST_SHRUBBERY_FORM_FILES := test_shrubbery_form.cpp \
+
 TEST_BUREAUCRAT_DIR := test_bureaucrat/
 TEST_BUREAUCRAT_FILES := test_bureaucrat.cpp \
 
@@ -71,6 +83,9 @@ TEST_FORM_FILES := test_form.cpp \
 TEST_DIR := test/
 TEST_FILES := $(addprefix $(TEST_BUREAUCRAT_DIR), $(TEST_BUREAUCRAT_FILES)) \
 			  $(addprefix $(TEST_FORM_DIR), $(TEST_FORM_FILES)) \
+			  $(addprefix $(TEST_PRESIDENTIAL_FORM_DIR), $(TEST_PRESIDENTIAL_FORM_FILES)) \
+			  $(addprefix $(TEST_ROBOTOMY_FORM_DIR), $(TEST_ROBOTOMY_FORM_FILES)) \
+			  $(addprefix $(TEST_SHRUBBERY_FORM_DIR), $(TEST_SHRUBBERY_FORM_FILES)) \
 
 SOURCES_DIR := srcs/
 SOURCES_FILES := main.cpp \
