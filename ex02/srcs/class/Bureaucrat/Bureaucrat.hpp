@@ -6,13 +6,14 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 08:51:39 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 17:43:25 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 12:17:40 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include "ABureaucratException.hpp"
 #include <exception>
 #include <ostream>
 #include <string>
@@ -33,18 +34,22 @@ class Bureaucrat
 		int						getGrade() const;
 
 		void					signForm(AForm& form) const;
+		void					signForm(AForm* ptr_form) const;
+		void					executeForm(AForm const & form) const;
+		void					executeForm(AForm const* ptr_form) const;
+	
 
 		Bureaucrat&	operator++(); // prefix increment
 		Bureaucrat	operator++(int); // postfix increment
 		Bureaucrat& operator--();
 		Bureaucrat	operator--(int);
 
-		class GradeTooHighException: public std::exception
+		class GradeTooHighException: public ABureaucratException
 		{
 			const char * what() const throw();
 		};
 
-		class GradeTooLowException: public std::exception
+		class GradeTooLowException: public ABureaucratException 
 		{
 			const char * what() const throw();
 		};

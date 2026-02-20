@@ -75,6 +75,11 @@ const char * AForm::AlreadySigned::what() const throw()
 	return ("form is already signed");
 }
 
+const char * AForm::IsNotSigned::what() const throw()
+{
+	return ("form is not signed");
+}
+
 std::ostream&	operator<<(std::ostream& os, const AForm& other)
 {
 	os << "AForm-> name: '" << other.getName() << "', "

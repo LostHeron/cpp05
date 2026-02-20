@@ -6,10 +6,11 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:02:29 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 17:41:14 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 12:07:18 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
 #include <iostream>
@@ -26,6 +27,9 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	(void) executor;
+	if (this->getIsSigned() == false)
+		throw AForm::IsNotSigned();
+	if (executor.getGrade() > this->getExecuteGrade().getGrade())
+		throw AForm::GradeTooLowException();
 	std::cout << "in Robotomy Request From executio" << std::endl;
 }

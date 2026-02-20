@@ -6,13 +6,14 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:53:00 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 17:05:59 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 12:05:49 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
+#include "AFormException.hpp"
 #include "SignGrade.hpp"
 #include "ExecuteGrade.hpp"
 #include <string>
@@ -33,17 +34,22 @@ class AForm
 		void				beSigned(const Bureaucrat& other);
 		virtual void		execute(Bureaucrat const & executor) const = 0;
 		
-		class GradeTooHighException: public std::exception
+		class GradeTooHighException: public AFormException
 		{
 			const char * what() const throw();
 		};
 
-		class GradeTooLowException: public std::exception
+		class GradeTooLowException: public AFormException
 		{
 			const char * what() const throw();
 		};
 
-		class AlreadySigned: public std::exception
+		class AlreadySigned: public AFormException
+		{
+			const char * what() const throw();
+		};
+
+		class IsNotSigned: public AFormException
 		{
 			const char * what() const throw();
 		};

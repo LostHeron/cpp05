@@ -6,10 +6,11 @@
 /*   By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 12:53:19 by jweber            #+#    #+#             */
-/*   Updated: 2026/02/19 17:44:07 by jweber           ###   ########.fr       */
+/*   Updated: 2026/02/20 12:18:41 by jweber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ABureaucratException.hpp"
 #include "AForm.hpp"
 #include <exception>
 #include <iostream>
@@ -55,24 +56,20 @@ void	test_form_creation()
 void	test_form_creation_ok()
 {
 	AForm *my_form;
-	Bureaucrat enzo("enzo", 25);
-	//std::cout << "test: Form	a(\"first_form\", 12, 13);\n";
 	try
 	{
-		my_form = new RobotomyRequestForm("petrini");
-		my_form->execute(enzo);
-		std::cout << my_form << "\n";
+		Bureaucrat enzo("enzo", 1);
+		std::cout << "successfully built: " << enzo << "\n";
+		my_form = new PresidentialPardonForm("home");NL;
+		enzo.executeForm(my_form);NL;
+		enzo.signForm(my_form);NL;
+		enzo.signForm(my_form);NL;
+		enzo.executeForm(my_form);NL;
 	}
-	catch(std::exception& e)
+	catch (ABureaucratException& e)
 	{
-		std::cout << "error: " << e.what() << std::endl;
+		std::cout << "error: " << e.what() << "\n";
 	}
-	catch(...)
-	{
-		OTHER_ERROR;
-	}
-	// ok something here bad, cuz if operator 'new' threw, then i would delete
-	// something that shouldn't ??
 	delete my_form;
 }
 

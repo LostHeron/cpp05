@@ -6,7 +6,7 @@
 #    By: jweber <jweber@student.42Lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/07 13:36:07 by jweber            #+#    #+#              #
-#    Updated: 2026/02/19 17:42:17 by jweber           ###   ########.fr        #
+#    Updated: 2026/02/20 12:01:22 by jweber           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,15 @@ INCLUDES_DIR = $(SOURCES_DIR)includes/
 
 INCLUDES = -I $(INCLUDES_DIR)\
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(BUREAUCRAT_DIR) \
+		   -I $(SOURCES_DIR)$(CLASS_DIR)$(EXCEPTION_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(FORM_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(FORM_DIR)$(SHRUBBERY_CREATION_FORM_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(SIGN_GRADE_DIR) \
 		   -I $(SOURCES_DIR)$(CLASS_DIR)$(EXECUTE_GRADE_DIR) \
+
+EXCEPTION_DIR := Exceptions/
+EXCEPTION_FILES := AFormException.cpp \
+				   ABureaucratException.cpp \
 
 BUREAUCRAT_DIR := Bureaucrat/
 BUREAUCRAT_FILES := Bureaucrat.cpp \
@@ -52,6 +57,7 @@ CLASS_FILES := $(addprefix $(FORM_DIR), $(FORM_FILES)) \
 			   $(addprefix $(BUREAUCRAT_DIR), $(BUREAUCRAT_FILES)) \
 			   $(addprefix $(SIGN_GRADE_DIR), $(SIGN_GRADE_FILES)) \
 			   $(addprefix $(EXECUTE_GRADE_DIR), $(EXECUTE_GRADE_FILES)) \
+			   $(addprefix $(EXCEPTION_DIR), $(EXCEPTION_FILES)) \
 
 TEST_BUREAUCRAT_DIR := test_bureaucrat/
 TEST_BUREAUCRAT_FILES := test_bureaucrat.cpp \
