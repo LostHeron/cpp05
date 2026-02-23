@@ -71,22 +71,22 @@ void		AForm::execute(Bureaucrat const & executor) const
 
 const char * AForm::GradeTooHighException::what() const throw()
 {
-	return ("form grade too high");
+	return ("from form: grade too high");
 }
 
 const char * AForm::GradeTooLowException::what() const throw()
 {
-	return ("form grade too low");
+	return ("form form: grade too low");
 }
 
 const char * AForm::AlreadySigned::what() const throw()
 {
-	return ("form is already signed");
+	return ("from form: is already signed");
 }
 
 const char * AForm::IsNotSigned::what() const throw()
 {
-	return ("form is not signed");
+	return ("from form: is not signed");
 }
 
 std::ostream&	operator<<(std::ostream& os, const AForm& other)

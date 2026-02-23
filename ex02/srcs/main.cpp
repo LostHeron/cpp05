@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "test.hpp"
 #include "test_bureaucrat.hpp"
 #include "test_form.hpp"
 
@@ -17,7 +18,16 @@ int	main(void)
 {
 	test_bureaucrat();
 	test_form();
-	test_presidential_form();
-	test_robotomy_form();
-	test_shrubbery_form();
+
+	MSG_POUND("test presidential form");NL;
+	test_presidential_form();NL;
+	MSG_POUND("end");NL;NL;
+
+	MSG_POUND("test robotomy form");NL;
+	test_robotomy_form();NL;
+	MSG_POUND("end");NL;NL;
+
+	MSG_POUND("test shrubbery form");NL;
+	test_shrubbery_form();NL;
+	MSG_POUND("end");NL;NL;
 }

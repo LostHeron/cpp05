@@ -17,11 +17,16 @@
 #include "PresidentialPardonForm.hpp"
 
 void	test_presidential_form_ok(void);
+void	test_presidential_form_fail_then_ok(void);
 
 void	test_presidential_form(void)
 {
 	MSG("test presidential form creation");
 	test_presidential_form_ok();
+	MSG("end");NL;
+
+	MSG("test presidential form not ok then ok");
+	test_presidential_form_fail_then_ok();
 	MSG("end");NL;
 }
 
@@ -38,6 +43,36 @@ void	test_presidential_form_ok(void)
 		enzo.executeForm(ptr_form);NL;
 	}
 	catch (AWorkExceptions& e)
+	{
+		std::cout << "could not create bureaucrat, "
+			<< "error: " << e.what() << "\n";
+	}
+	delete ptr_form;
+}
+
+void test_presidential_form_fail_then_ok(void)
+{
+	AForm *ptr_form;
+	try
+	{
+		Bureaucrat enzo("enzo", 27);
+		std::cout << "successfully created bureaucrat: " << enzo << "\n";NL;
+		ptr_form = new PresidentialPardonForm("Gautier");
+		std::cout << "successfully created form: " << ptr_form << "\n";NL;
+		enzo.executeForm(ptr_form);NL;
+		enzo.signForm(ptr_form);NL;
+		for (int i = 0; i < 3 ; i++)
+			enzo++;
+		std::cout << enzo << "\n";NL;
+		enzo.signForm(ptr_form);NL;
+		enzo.executeForm(ptr_form);NL;
+		for (int i = 0; i < 20 ; i++)
+			enzo++;
+		std::cout << enzo << "\n";NL;
+		enzo.signForm(ptr_form);NL;
+		enzo.executeForm(ptr_form);NL;
+	}
+	catch(AWorkExceptions& e)
 	{
 		std::cout << "could not create bureaucrat, "
 			<< "error: " << e.what() << "\n";
