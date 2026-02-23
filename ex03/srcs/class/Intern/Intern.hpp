@@ -18,6 +18,10 @@
 #include <cstring>
 
 
+class Intern;
+
+typedef AForm *(*makingForm)(const std::string& target);
+
 // so, we need an array of AForm pointer,
 // in which we will store the number of leaving AForm,
 // and we should return a const pointer to to AForm so noone except 
@@ -27,17 +31,19 @@ class Intern
 		Intern();
 		~Intern();
 
-		AForm	*makeForm(std::string formName);
-
+		AForm	*makeForm(std::string formName, const std::string& target);
+		
 	private:
 		Intern(const Intern& other);
 		Intern &operator=(const Intern& other);
 
-		const static std::string existingForms[NB_DIFFERENT_FORMS]; 
+		const static std::string	existingForms[NB_DIFFERENT_FORMS]; 
+		static makingForm			makingForms[3];
 
 		void	clear();
 		void	resize();
 		void	insert(AForm *ptr_form);
+		int		check_matching_form(std::string formName);
 
 		AForm	**ptr_form_array;
 		size_t	capacity;
